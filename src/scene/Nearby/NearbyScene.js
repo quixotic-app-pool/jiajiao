@@ -8,7 +8,7 @@
 
 //import liraries
 import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image } from 'react-native'
+import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, ListView, Image } from 'react-native'
 import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
 
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
@@ -16,16 +16,28 @@ import { color, Button, NavigationItem, RefreshListView, RefreshState, SpacingVi
 import { screen, system, tool } from '../../common'
 import api from '../../api'
 import NearbyListScene from './NearbyListScene'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 // create a component
 class NearbyScene extends PureComponent {
 
     static navigationOptions = ({ navigation }) => ({
         headerRight: (
-            <TouchableOpacity style={styles.searchBar}>
-                <Image source={require('../../img/Home/search_icon.png')} style={styles.searchIcon} />
-                <Paragraph>找附近的吃喝玩乐</Paragraph>
-            </TouchableOpacity>
+          <View style={styles.searchBar}>
+            <TextInput
+              placeholder="this is placeholder"
+              placeholder="搜索学科或者老师..."
+              placeholderTextColor= 'gray'
+              style={{
+                height: 30,
+                width: 150,
+                borderColor: 'white',
+                fontSize: 12
+              }} />
+              <TouchableOpacity>
+                <Icon name="ios-search" style={styles.searchIcon} size={20} color="#4F8EF7" />
+              </TouchableOpacity>
+          </View>
         ),
         headerLeft: (
             <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 10 }}>
@@ -35,6 +47,10 @@ class NearbyScene extends PureComponent {
         ),
         headerStyle: { backgroundColor: 'white' },
     })
+
+    state: {
+        text: String
+    }
 
     render() {
         let titles = ['大学生', '专职教师', '金牌教员', '优秀机构', '学生保姆','海归派']

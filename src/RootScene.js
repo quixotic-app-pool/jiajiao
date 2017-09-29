@@ -147,6 +147,7 @@ const Navigator = StackNavigator(
         Tab: { screen: Tab },
         Web: { screen: WebScene },
         GroupPurchase: { screen: GroupPurchaseScene },
+        Nearby: { screen: NearbyScene }
     },
     {
         navigationOptions: {

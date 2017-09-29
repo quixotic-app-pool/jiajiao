@@ -20,15 +20,16 @@ import api from '../../api'
 import HomeMenuView from './HomeMenuView'
 import HomeGridView from './HomeGridView'
 import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 // create a component
 class HomeScene extends PureComponent {
 
     static navigationOptions = ({ navigation }) => ({
         headerTitle: (
-            <TouchableOpacity style={styles.searchBar}>
-                <Image source={require('../../img/Home/search_icon.png')} style={styles.searchIcon} />
-                <Paragraph>一点点</Paragraph>
+            <TouchableOpacity style={styles.searchBar} onPress={()=>navigation.state.params.handleSearch()}>
+                <Paragraph>搜索学科或者老师...</Paragraph>
+                <Icon name="ios-search" style={styles.searchIcon} size={20} color="#4F8EF7" />
             </TouchableOpacity>
         ),
         headerRight: (
@@ -66,6 +67,7 @@ class HomeScene extends PureComponent {
             refreshing: false,
         }
 
+        { (this: any).goSearch = this.goSearch.bind(this) }
         { (this: any).requestData = this.requestData.bind(this) }
         { (this: any).renderCell = this.renderCell.bind(this) }
         { (this: any).onCellSelected = this.onCellSelected.bind(this) }
@@ -76,7 +78,13 @@ class HomeScene extends PureComponent {
     }
 
     componentDidMount() {
-        this.requestData()
+        this.requestData();
+        this.props.navigation.setParams({ handleSearch: this.goSearch })
+    }
+
+    goSearch()  {
+      StatusBar.setBarStyle('default', false)
+      this.props.navigation.navigate('Nearby')
     }
 
     requestData() {
@@ -248,6 +256,7 @@ const styles = StyleSheet.create({
         width: 20,
         height: 20,
         margin: 5,
+        alignItems: 'flex-end',
     }
 });
 

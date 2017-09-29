@@ -2,14 +2,14 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan  
+ * https://github.com/huanxsd/MeiTuan
  * @flow
  */
 
 //import liraries
 import React, { PureComponent } from 'react'
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image } from 'react-native'
-import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
+import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
 
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import { color, Button, NavigationItem, RefreshListView, RefreshState, SpacingView } from '../../widget'
@@ -37,11 +37,11 @@ class NearbyScene extends PureComponent {
     })
 
     render() {
-        let titles = ['享美食', '住酒店', '爱玩乐', '全部']
+        let titles = ['大学生', '专职教师', '金牌教员', '优秀机构', '学生保姆','海归派']
         let types = [
-            ['热门', '面包甜点', '小吃快餐', '川菜', '日本料理', '韩国料理', '台湾菜', '东北菜'],
-            ['热门', '商务出行', '公寓民宿', '情侣专享', '高星特惠', '成人情趣'],
-            ['热门', 'KTV', '足疗按摩', '洗浴汗蒸', '大宝剑', '电影院', '美发', '美甲'],
+            ['男学生', '女学生', '211', '985', '双一流', '费用', '评分', '上课时间', '数学', '语文', '英语', '全科'],
+            ['男老师', '女老师', '211', '985', '费用', '评分', '上课时间'],
+            ['英语培训', '应试补习', '费用', '洗浴汗蒸', '大宝剑', '电影院', '美发', '美甲'],
             []
         ]
 
@@ -53,7 +53,7 @@ class NearbyScene extends PureComponent {
                 tabBarInactiveTextColor='#555555'
                 tabBarTextStyle={styles.tabBarText}
                 tabBarUnderlineStyle={styles.tabBarUnderline}
-            // renderTabBar={() => <DefaultTabBar style={styles.tabBar}/>}
+                renderTabBar={() => <ScrollableTabBar />}
             >
                 {titles.map((title, i) => (
                     <NearbyListScene

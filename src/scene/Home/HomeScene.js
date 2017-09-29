@@ -2,13 +2,13 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan 
+ * https://github.com/huanxsd/MeiTuan
  * @flow
  */
 
 //import liraries
 import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar, FlatList } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ListView, Image, StatusBar, FlatList, SectionList } from 'react-native'
 
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import { color, Button, NavigationItem, SearchBar, SpacingView } from '../../widget'
@@ -116,6 +116,7 @@ class HomeScene extends PureComponent {
         try {
             let response = await fetch(api.discount)
             let json = await response.json()
+            /* 现在用dummydata，后面再走服务器测试*/
             this.setState({ discounts: json.data })
         } catch (error) {
             alert(error)
@@ -143,17 +144,12 @@ class HomeScene extends PureComponent {
     renderHeader() {
         return (
             <View>
-                <HomeMenuView menuInfos={api.menuInfo} onMenuSelected={this.onMenuSelected} />
-
-                <SpacingView />
 
                 <HomeGridView infos={this.state.discounts} onGridSelected={(this.onGridSelected)} />
-
                 <SpacingView />
 
-                <View style={styles.recommendHeader}>
-                    <Heading2>猜你喜欢</Heading2>
-                </View>
+                <HomeMenuView menuInfos={api.menuInfo} onMenuSelected={this.onMenuSelected} />
+
             </View>
         )
     }
@@ -177,15 +173,48 @@ class HomeScene extends PureComponent {
     render() {
         return (
             <View style={styles.container}>
-                <FlatList
-                    data={this.state.dataList}
+                <SectionList
+                    sections={[
+                      {key:"$key1", title: "推荐拼团", data: this.state.dataList},
+                      {key:"$key2", data: [{
+                          id: 42436635,
+                          imageUrl: "https:\/\/beebom.com\/reverse-image-search-engines-apps-uses\/",
+                          title: "test",
+                          subtitle: "test",
+                          price: 3
+                      }], title: "推荐大学生家教"},
+                      {key:"$key3", data: [{
+                          id: 42332535,
+                          imageUrl: "https:\/\/beebom.com\/reverse-image-search-engines-apps-uses\/",
+                          title: "test",
+                          subtitle: "test",
+                          price: 3
+                      }], title: "推荐专职教师"},
+                      {key:"$key4", data: [{
+                          id: 42467535,
+                          imageUrl: "https:\/\/beebom.com\/reverse-image-search-engines-apps-uses\/",
+                          title: "test",
+                          subtitle: "test",
+                          price: 3
+                      }], title: "推荐优秀学习机构"}
+                    ]
+                    }
                     keyExtractor={this.keyExtractor}
                     onRefresh={this.requestData}
                     refreshing={this.state.refreshing}
+                    renderSectionHeader= {({section}) =>
+                      <View>
+                        <SpacingView />
+                        <View style={styles.recommendHeader}>
+                            <Heading2>{section.title}</Heading2>
+                        </View>
+                      </View>
+                    }
                     ListHeaderComponent={this.renderHeader}
                     renderItem={this.renderCell}
                 />
             </View>
+              /*这里需要显示几个group，推荐拼团活动，推荐大学生家教，推荐专职教师，推荐机构*/
         );
     }
 }

@@ -2,7 +2,7 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan  
+ * https://github.com/huanxsd/MeiTuan
  * @flow
  */
 
@@ -71,7 +71,7 @@ const Tab = TabNavigator(
         Home: {
             screen: HomeScene,
             navigationOptions: ({ navigation }) => ({
-                tabBarLabel: '团购',
+                tabBarLabel: '首页',
                 tabBarIcon: ({ focused, tintColor }) => (
                     <TabBarItem
                         tintColor={tintColor}
@@ -85,7 +85,7 @@ const Tab = TabNavigator(
         Nearby: {
             screen: NearbyScene,
             navigationOptions: ({ navigation }) => ({
-                tabBarLabel: '附近',
+                tabBarLabel: '推荐',
                 tabBarIcon: ({ focused, tintColor }) => (
                     <TabBarItem
                         tintColor={tintColor}
@@ -100,7 +100,7 @@ const Tab = TabNavigator(
         Order: {
             screen: OrderScene,
             navigationOptions: ({ navigation }) => ({
-                tabBarLabel: '订单',
+                tabBarLabel: '消息',
                 tabBarIcon: ({ focused, tintColor }) => (
                     <TabBarItem
                         tintColor={tintColor}

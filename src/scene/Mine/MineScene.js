@@ -2,17 +2,18 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan 
+ * https://github.com/huanxsd/MeiTuan
  * @flow
  */
 
 //import liraries
 import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, StatusBar, Image, TouchableOpacity, ScrollView, RefreshControl } from 'react-native'
+import { View, Text, StyleSheet, StatusBar, Image, TouchableOpacity, ScrollView, RefreshControl, TouchableWithoutFeedback } from 'react-native'
 
 import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import { screen, system, tool } from '../../common'
 import { color, DetailCell, NavigationItem, SpacingView } from '../../widget'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 // create a component
 class MineScene extends PureComponent {
@@ -80,15 +81,42 @@ class MineScene extends PureComponent {
     renderHeader() {
         return (
             <View style={styles.header}>
-                <View style={styles.userContainer}>
-                    <Image style={styles.avatar} source={require('../../img/Mine/avatar.png')} />
-                    <View>
-                        <View style={{ flexDirection: 'row' }}>
-                            <Heading1 style={{ color: 'white' }}>素敌</Heading1>
-                            <Image style={{ marginLeft: 4 }} source={require('../../img/Mine/beauty_technician_v15@2x.png')} />
-                        </View>
-                        <Paragraph style={{ color: 'white', marginTop: 4 }}>个人信息 ></Paragraph>
+
+                <TouchableOpacity>
+                  <View style={styles.userContainer}>
+                      <Image style={styles.avatar} source={require('../../img/Mine/avatar.png')} />
+                      <View style={{flex: 1, flexDirection: 'row'}}>
+                          <View style={{flex: 1, marginLeft: 10, paddingVertical: 5}}>
+                            <Text style={{color: "#fff", fontSize: 18}}>_平行时空</Text>
+                            <View style={{marginTop: 10, flexDirection: "row"}}>
+                              <Icon name="ios-phone-portrait-outline" size={14} color="#fff" />
+                              <Text style={{color: "#fff", fontSize: 13, paddingLeft: 5}}>135****0418</Text>
+                            </View>
+                          </View>
+                              <Text style={{ color: 'white', marginTop: 14, alignItems: 'flex-end' }}>个人信息 ></Text>
+                      </View>
+                  </View>
+                </TouchableOpacity>
+
+                <View style={styles.numbers}>
+                  <TouchableWithoutFeedback>
+                    <View style={styles.numItem}>
+                        <Text style={{color: "#f90", fontSize: 18, textAlign: "center", fontWeight: "bold"}}>{"999999.0元"}</Text>
+                        <Text style={{color: "#333", fontSize: 12, textAlign: "center", paddingTop: 5}}>{"余额"}</Text>
                     </View>
+                  </TouchableWithoutFeedback>
+                  <TouchableWithoutFeedback>
+                    <View style={[styles.numItem,{borderLeftWidth: 1, borderLeftColor: "#f5f5f5",borderRightWidth: 1, borderRightColor: "#f5f5f5"}]}>
+                        <Text style={{color: "#ff5f3e", fontSize: 18, textAlign: "center", fontWeight: "bold"}}>{"1940个"}</Text>
+                        <Text style={{color: "#333", fontSize: 12, textAlign: "center", paddingTop: 5}}>{"优惠"}</Text>
+                    </View>
+                  </TouchableWithoutFeedback>
+                  <TouchableWithoutFeedback>
+                    <View style={styles.numItem}>
+                        <Text style={{color: "#6ac20b", fontSize: 18, textAlign: "center", fontWeight: "bold"}}>{"999999分"}</Text>
+                        <Text style={{color: "#333", fontSize: 12, textAlign: "center", paddingTop: 5}}>{"积分"}</Text>
+                    </View>
+                  </TouchableWithoutFeedback>
                 </View>
             </View>
         )
@@ -118,21 +146,27 @@ class MineScene extends PureComponent {
         return (
             [
                 [
-                    { title: '我的钱包', subtitle: '办信用卡', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
-                    { title: '余额', subtitle: '￥95872385', image: require('../../img/Mine/icon_mine_balance@2x.png') },
-                    { title: '抵用券', subtitle: '63', image: require('../../img/Mine/icon_mine_voucher@2x.png') },
-                    { title: '会员卡', subtitle: '2', image: require('../../img/Mine/icon_mine_membercard@2x.png') }
+                    { title: '个人资料', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
+                    { title: '课程管理', image: require('../../img/Mine/icon_mine_balance@2x.png') },
+                    { title: '认证中心', image: require('../../img/Mine/icon_mine_voucher@2x.png') },
+                    { title: '我的评价', image: require('../../img/Mine/icon_mine_membercard@2x.png') },
+                    { title: '评价中心', image: require('../../img/Mine/icon_mine_membercard@2x.png') },
+                    { title: '分享我的主页', image: require('../../img/Mine/icon_mine_balance@2x.png') },
+                    { title: '邀请其他老师', image: require('../../img/Mine/icon_mine_voucher@2x.png') },
+                    { title: '我的收藏', image: require('../../img/Mine/icon_mine_collection@2x.png') }
                 ],
                 [
-                    { title: '好友去哪', image: require('../../img/Mine/icon_mine_friends@2x.png') },
-                    { title: '我的评价', image: require('../../img/Mine/icon_mine_comment@2x.png') },
-                    { title: '我的收藏', image: require('../../img/Mine/icon_mine_collection@2x.png') },
-                    { title: '会员中心', subtitle: 'v15', image: require('../../img/Mine/icon_mine_membercenter@2x.png') },
-                    { title: '积分商城', subtitle: '好礼已上线', image: require('../../img/Mine/icon_mine_member@2x.png') }
+                    { title: '我的订单', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
+                    { title: '我的钱包', subtitle: '办信用卡', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
+                    { title: '余额', subtitle: '￥95872385', image: require('../../img/Mine/icon_mine_balance@2x.png') },
+                    { title: '我的老师', image: require('../../img/Mine/icon_mine_voucher@2x.png') },
+                    { title: '我的评价', image: require('../../img/Mine/icon_mine_membercard@2x.png') },
+                    { title: '我的精选课程', image: require('../../img/Mine/icon_mine_membercard@2x.png') },
+                    { title: '邀请好友', image: require('../../img/Mine/icon_mine_membercard@2x.png') }
                 ],
                 [
                     { title: '客服中心', image: require('../../img/Mine/icon_mine_customerService@2x.png') },
-                    { title: '关于美团', subtitle: '我要合作', image: require('../../img/Mine/icon_mine_aboutmeituan@2x.png') }
+                    { title: '关于APP', subtitle: '我要合作', image: require('../../img/Mine/icon_mine_aboutmeituan@2x.png') }
                 ]
             ]
         )
@@ -144,7 +178,6 @@ class MineScene extends PureComponent {
 const styles = StyleSheet.create({
     header: {
         backgroundColor: color.theme,
-        paddingBottom: 20
     },
     icon: {
         width: 27,
@@ -162,8 +195,19 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         borderWidth: 2,
         borderColor: '#51D3C6'
+    },
+    numbers: {
+      flexDirection: "row",
+      backgroundColor: "#fff",
+      height: 74
+    },
+    numItem: {
+      flex: 1,
+      height: 74,
+      justifyContent: "center",
+      alignItems: "center"
     }
-});
+    });
 
 //make this component available to the app
 export default MineScene;

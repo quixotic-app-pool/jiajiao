@@ -15,24 +15,25 @@ export default {
 
 
     menuInfo: [
-            { title: '美食', icon: require('./img/Home/icon_homepage_foodCategory.png') },
-            { title: '电影', icon: require('./img/Home/icon_homepage_movieCategory.png') },
-            { title: '酒店', icon: require('./img/Home/icon_homepage_hotelCategory.png') },
-            { title: 'KTV', icon: require('./img/Home/icon_homepage_KTVCategory.png') },
-            { title: '优惠买单', icon: require('./img/Home/icon_homepage_default.png') },
-            { title: '周边游', icon: require('./img/Home/icon_homepage_foottreatCategory.png') },
-            { title: '生活服务', icon: require('./img/Home/icon_homepage_lifeServiceCategory.png') },
-            { title: '休闲娱乐', icon: require('./img/Home/icon_homepage_entertainmentCategory.png') },
-            { title: '丽人/美发', icon: require('./img/Home/icon_homepage_beautyCategory.png') },
-            { title: '购物', icon: require('./img/Home/icon_homepage_shoppingCategory.png') },
+            { title: '订单', icon: require('./img/Home/icon_homepage_foodCategory.png') },
+            { title: '生源回应', icon: require('./img/Home/icon_homepage_movieCategory.png') },
+            { title: '家教回应', icon: require('./img/Home/icon_homepage_hotelCategory.png') },
+            { title: '机构回应', icon: require('./img/Home/icon_homepage_KTVCategory.png') },
+            { title: '钱包', icon: require('./img/Home/icon_homepage_default.png') },
+            { title: '我的学生', icon: require('./img/Home/icon_homepage_foottreatCategory.png') },
+            { title: '家教发单', icon: require('./img/Home/icon_homepage_lifeServiceCategory.png') },
+            { title: '保姆发单', icon: require('./img/Home/icon_homepage_lifeServiceCategory.png') },
+            { title: '机构发单', icon: require('./img/Home/icon_homepage_lifeServiceCategory.png') },
+            { title: '最新单子', icon: require('./img/Home/icon_homepage_entertainmentCategory.png') },
+            { title: '客服', icon: require('./img/Home/icon_homepage_beautyCategory.png') },
+            { title: '推荐', icon: require('./img/Home/icon_homepage_shoppingCategory.png') },
 
-            { title: '丽人/美发', icon: require('./img/Home/icon_homepage_beautyCategory.png') },
-            { title: '电影', icon: require('./img/Home/icon_homepage_movieCategory.png') },
-            { title: '周边游', icon: require('./img/Home/icon_homepage_foottreatCategory.png') },
-            { title: '酒店', icon: require('./img/Home/icon_homepage_hotelCategory.png') },
-            { title: '优惠买单', icon: require('./img/Home/icon_homepage_default.png') },
-            { title: '休闲娱乐', icon: require('./img/Home/icon_homepage_entertainmentCategory.png') },
-            { title: 'KTV', icon: require('./img/Home/icon_homepage_KTVCategory.png') },
+            { title: '大学生家教', icon: require('./img/Home/icon_homepage_beautyCategory.png') },
+            { title: '专职教师', icon: require('./img/Home/icon_homepage_movieCategory.png') },
+            { title: '金牌教员', icon: require('./img/Home/icon_homepage_foottreatCategory.png') },
+            { title: '海归派', icon: require('./img/Home/icon_homepage_hotelCategory.png') },
+            { title: '拼团活动', icon: require('./img/Home/icon_homepage_default.png') },
+            { title: '评价', icon: require('./img/Home/icon_homepage_entertainmentCategory.png') }
         ]
 }
 

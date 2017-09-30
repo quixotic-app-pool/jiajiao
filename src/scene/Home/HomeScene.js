@@ -160,7 +160,11 @@ class HomeScene extends PureComponent {
     renderHeader() {
         return (
             <View>
-
+                <TouchableOpacity>
+                  <View style={{height: 90, paddingHorizontal: 5, marginVertical: 10}}>
+                    <Image source={require('../../img/Home/ad1.png')} style={{height: 90, width: screen.width - 10, resizeMode: 'cover'}}/>
+                  </View>
+                </TouchableOpacity>
                 <HomeGridView infos={this.state.discounts} onGridSelected={(this.onGridSelected)} />
                 <SpacingView />
 

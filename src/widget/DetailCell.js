@@ -2,7 +2,7 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan  
+ * https://github.com/huanxsd/MeiTuan
  * @flow
  */
 
@@ -17,10 +17,10 @@ import { screen, system, tool } from '../common'
 class DetailCell extends PureComponent {
     render() {
         let icon = this.props.image && <Image style={styles.icon} source={this.props.image} />
-        
+
         return (
             <View style={styles.container}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={this.props.onPress}>
                     <View style={[styles.content, this.props.style]}>
                         {icon}
                         <Heading2>{this.props.title}</Heading2>

@@ -2,7 +2,7 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan  
+ * https://github.com/huanxsd/MeiTuan
  * @flow
  */
 
@@ -15,7 +15,7 @@ export let Button = ButtonInner
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan  
+ * https://github.com/huanxsd/MeiTuan
  * @flow
  */
 
@@ -29,6 +29,7 @@ import Separator from './Separator'
 import SpacingView from './SpacingView'
 import TabBarItem from './TabBarItem'
 import WebScene from './WebScene'
+// import Button2 from './Button2'
 
 export {
     DetailCell,
@@ -42,5 +43,3 @@ export {
     TabBarItem,
     WebScene
 }
-
-

@@ -49,6 +49,7 @@ class MineScene extends PureComponent {
 
         { (this: any).goProfile = this.goProfile.bind(this) }
         { (this: any).goSetting = this.goSetting.bind(this) }
+        { (this: any).goDetail = this.goDetail.bind(this) }
     }
 
     componentDidMount() {
@@ -63,6 +64,11 @@ class MineScene extends PureComponent {
     goProfile() {
       StatusBar.setBarStyle('default', false)
       this.props.navigation.navigate('UserProfile')
+    }
+
+    goDetail(sceneName: String) {
+      StatusBar.setBarStyle('default', false)
+      this.props.navigation.navigate(sceneName)
     }
 
     onHeaderRefresh() {
@@ -80,7 +86,7 @@ class MineScene extends PureComponent {
             let sublist = dataList[i]
             for (let j = 0; j < sublist.length; j++) {
                 let data = sublist[j]
-                let cell = <DetailCell image={data.image} title={data.title} subtitle={data.subtitle} key={data.title} />
+                let cell = <DetailCell onPress={()=>this.goDetail(data.sceneName)} image={data.image} title={data.title} subtitle={data.subtitle} key={data.title} />
                 cells.push(cell)
             }
             cells.push(<SpacingView key={i} />)
@@ -161,29 +167,29 @@ class MineScene extends PureComponent {
         return (
             [
                 [
-                    { title: '个人资料', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
-                    { title: '课程管理', image: require('../../img/Mine/icon_mine_balance@2x.png') },
-                    { title: '认证中心', image: require('../../img/Mine/icon_mine_voucher@2x.png') },
-                    { title: '我的评价', image: require('../../img/Mine/icon_mine_membercard@2x.png') },
-                    { title: '评价中心', image: require('../../img/Mine/icon_mine_membercard@2x.png') },
-                    { title: '分享我的主页', image: require('../../img/Mine/icon_mine_balance@2x.png') },
-                    { title: '邀请其他老师', image: require('../../img/Mine/icon_mine_voucher@2x.png') },
-                    { title: '我的收藏', image: require('../../img/Mine/icon_mine_collection@2x.png') }
+                    { title: '个人资料', sceneName: 'UserProfile', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
+                    { title: '我的地址', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
+                    { title: '课程管理', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_balance@2x.png') },
+                    { title: '认证中心', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_voucher@2x.png') },
+                    { title: '我的评价', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_membercard@2x.png') },
+                    { title: '用户评论', sceneName: 'UserComment', image: require('../../img/Mine/icon_mine_membercard@2x.png') },
+                    { title: '分享我的主页', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_balance@2x.png') },
+                    { title: '邀请其他老师', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_voucher@2x.png') },
+                    { title: '我的收藏', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_collection@2x.png') }
                 ],
                 [
-                    { title: '我的订单', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
-                    { title: '我的钱包', subtitle: '办信用卡', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
-                    { title: '余额', subtitle: '￥95872385', image: require('../../img/Mine/icon_mine_balance@2x.png') },
-                    { title: '我的老师', image: require('../../img/Mine/icon_mine_voucher@2x.png') },
-                    { title: '我的评价', image: require('../../img/Mine/icon_mine_membercard@2x.png') },
-                    { title: '我的精选课程', image: require('../../img/Mine/icon_mine_membercard@2x.png') },
-                    { title: '邀请好友', image: require('../../img/Mine/icon_mine_membercard@2x.png') }
+                    { title: '我的订单', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
+                    { title: '我的钱包', sceneName: 'UserAddress', subtitle: '办信用卡', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
+                    { title: '余额', sceneName: 'UserAddress', subtitle: '￥95872385', image: require('../../img/Mine/icon_mine_balance@2x.png') },
+                    { title: '我的老师', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_voucher@2x.png') },
+                    { title: '我的精选课程', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_membercard@2x.png') },
+                    { title: '邀请好友', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_membercard@2x.png') }
                 ],
                 [
-                    { title: '我们的网站', image: require('../../img/Mine/icon_mine_customerService@2x.png') },
-                    { title: '我们的公众号', image: require('../../img/Mine/icon_mine_customerService@2x.png') },
-                    { title: '客服中心', image: require('../../img/Mine/icon_mine_customerService@2x.png') },
-                    { title: '关于APP', subtitle: '我要合作', image: require('../../img/Mine/icon_mine_aboutmeituan@2x.png') }
+                    { title: '我们的网站', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_customerService@2x.png') },
+                    { title: '我们的公众号', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_customerService@2x.png') },
+                    { title: '客服中心', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_customerService@2x.png') },
+                    { title: '关于APP', sceneName: 'UserAddress', subtitle: '我要合作', image: require('../../img/Mine/icon_mine_aboutmeituan@2x.png') }
                 ]
             ]
         )

@@ -21,6 +21,9 @@ import NearbyScene from './scene/Nearby/NearbyScene'
 import MineScene from './scene/Mine/MineScene'
 import UserProfileScene from './scene/UserProfile/UserProfileScene'
 import SettingScene from './scene/Setting/SettingScene'
+import UserAddressScene from './scene/UserAddress/UserAddressScene'
+import EditAddressScene from './scene/UserAddress/EditAddressScene'
+import UserCommentScene from './scene/Comment/UserCommentScene'
 
 
 import WebScene from './widget/WebScene'
@@ -152,7 +155,10 @@ const Navigator = StackNavigator(
         GroupPurchase: { screen: GroupPurchaseScene },
         Nearby: { screen: NearbyScene },
         UserProfile: { screen: UserProfileScene },
-        Setting: { screen: SettingScene }
+        Setting: { screen: SettingScene },
+        UserAddress: { screen: UserAddressScene },
+        EditAddress: { screen: EditAddressScene },
+        UserComment: { screen: UserCommentScene },
     },
     {
         navigationOptions: {

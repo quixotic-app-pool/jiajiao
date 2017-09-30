@@ -17,7 +17,7 @@ import { screen, system, tool } from '../../common'
 class OrderMenuItem extends PureComponent {
     render() {
         return (
-            <TouchableOpacity style={styles.container}
+            <TouchableOpacity style={[styles.container, this.props.style]}
                 onPress={this.props.onPress}>
                 <Image source={this.props.icon} resizeMode='contain' style={styles.icon} />
                 <Heading2>

@@ -15,11 +15,11 @@ import { screen, system, tool } from '../../common'
 import api from '../../api'
 import { color, DetailCell, RefreshListView, RefreshState, SpacingView } from '../../widget'
 
-import OrderMenuItem from './OrderMenuItem'
+import OrderMenuItem from '../Order/OrderMenuItem'
 import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 
 // create a component
-class OrderScene extends PureComponent {
+class MessageScene extends PureComponent {
 
     listView: ListView
 
@@ -28,7 +28,7 @@ class OrderScene extends PureComponent {
     }
 
     static navigationOptions = ({ navigation }) => ({
-        title: '订单',
+        title: '消息中心',
         headerStyle: { backgroundColor: 'white' },
     })
 
@@ -85,13 +85,13 @@ class OrderScene extends PureComponent {
                     style={{backgroundColor: color.background}}
                     ref={(e) => this.listView = e}
                     dataSource={this.state.dataSource}
-                    renderHeader={() =><DetailCell title='我的收藏' subtitle='查看全部' style={{ height: 38 }} />}
+                    renderHeader={() =>{}}
                     renderRow={(rowData) =>
                         <GroupPurchaseCell
                             info={rowData}
                             onPress={() => {
                                 StatusBar.setBarStyle('default', false)
-                                this.props.navigation.navigate('GroupPurchase', { info: rowData })
+                                this.props.navigation.navigate('Chat', { info: rowData })
                             }}
                         />
                     }
@@ -104,13 +104,10 @@ class OrderScene extends PureComponent {
     renderHeader(listView) {
         return (
             <View style={styles.container}>
-                <DetailCell title='我的订单' subtitle='全部订单' style={{ height: 38 }} />
 
                 <View style={styles.itemContainer}>
-                    <OrderMenuItem onPress={()=>listView.startHeaderRefreshing()} title='待回应' icon={require('../../img/Order/order_tab_need_pay@2x.png')} />
-                    <OrderMenuItem onPress={()=>listView.startHeaderRefreshing()} title='已报名' icon={require('../../img/Order/order_tab_need_use@2x.png')} />
-                    <OrderMenuItem onPress={()=>listView.startHeaderRefreshing()} title='已成单' icon={require('../../img/Order/order_tab_need_review@2x.png')} />
-                    <OrderMenuItem onPress={()=>listView.startHeaderRefreshing()} title='全部' icon={require('../../img/Order/order_tab_needoffer_aftersale@2x.png')} />
+                    <OrderMenuItem onPress={()=>listView.startHeaderRefreshing()} title='消息' icon={require('../../img/Order/order_tab_need_pay@2x.png')} />
+                    <OrderMenuItem onPress={()=>listView.startHeaderRefreshing()} title='通知' icon={require('../../img/Order/order_tab_need_use@2x.png')} />
                 </View>
 
                 <SpacingView />
@@ -124,11 +121,17 @@ class OrderScene extends PureComponent {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white'
+
     },
     itemContainer: {
-        flexDirection: 'row',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          borderTopWidth: screen.onePixel,
+          borderLeftWidth: screen.onePixel,
+          borderColor: color.border
     },
 });
 
 //make this component available to the app
-export default OrderScene;
+export default MessageScene;

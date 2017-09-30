@@ -16,8 +16,8 @@ import { screen, system, tool } from './common'
 import TabBarItem from './widget/TabBarItem'
 
 import HomeScene from './scene/Home/HomeScene'
-import OrderScene from './scene/Order/OrderScene'
 import NearbyScene from './scene/Nearby/NearbyScene'
+import MessageScene from './scene/Message/MessageScene'
 import MineScene from './scene/Mine/MineScene'
 import UserProfileScene from './scene/UserProfile/UserProfileScene'
 import SettingScene from './scene/Setting/SettingScene'
@@ -25,6 +25,8 @@ import UserAddressScene from './scene/UserAddress/UserAddressScene'
 import EditAddressScene from './scene/UserAddress/EditAddressScene'
 import UserCommentScene from './scene/Comment/UserCommentScene'
 import FavoriteScene from './scene/Favorite/FavoriteScene'
+import OrderScene from './scene/Order/OrderScene'
+import ChatScene from './scene/Chat/ChatScene'
 
 
 import WebScene from './widget/WebScene'
@@ -104,8 +106,8 @@ const Tab = TabNavigator(
             }),
         },
 
-        Order: {
-            screen: OrderScene,
+        Message: {
+            screen: MessageScene,
             navigationOptions: ({ navigation }) => ({
                 tabBarLabel: '消息',
                 tabBarIcon: ({ focused, tintColor }) => (
@@ -160,7 +162,9 @@ const Navigator = StackNavigator(
         UserAddress: { screen: UserAddressScene },
         EditAddress: { screen: EditAddressScene },
         UserComment: { screen: UserCommentScene },
-        Favorite: { screen: FavoriteScene }
+        Favorite: { screen: FavoriteScene },
+        Order: { screen: OrderScene },
+        Chat: { screen: ChatScene }
     },
     {
         navigationOptions: {

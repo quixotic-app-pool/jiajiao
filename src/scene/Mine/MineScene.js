@@ -178,7 +178,7 @@ class MineScene extends PureComponent {
                     { title: '我的收藏', sceneName: 'Favorite', image: require('../../img/Mine/icon_mine_collection@2x.png') }
                 ],
                 [
-                    { title: '我的订单', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
+                    { title: '我的订单', sceneName: 'Order', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
                     { title: '我的钱包', sceneName: 'UserAddress', subtitle: '办信用卡', image: require('../../img/Mine/icon_mine_wallet@2x.png') },
                     { title: '余额', sceneName: 'UserAddress', subtitle: '￥95872385', image: require('../../img/Mine/icon_mine_balance@2x.png') },
                     { title: '我的老师', sceneName: 'UserAddress', image: require('../../img/Mine/icon_mine_voucher@2x.png') },

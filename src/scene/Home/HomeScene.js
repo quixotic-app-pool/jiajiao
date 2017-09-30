@@ -36,9 +36,7 @@ class HomeScene extends PureComponent {
           <View style={{ flexDirection: 'row' }}>
               <NavigationItem
                   icon={require('../../img/Mine/icon_navigationItem_set_white@2x.png')}
-                  onPress={() => {
-
-                  }}
+                  onPress={() => navigation.state.params.handleSetting()}
               />
               <NavigationItem
                   icon={require('../../img/Home/icon_navigationItem_message_white@2x.png')}
@@ -75,6 +73,7 @@ class HomeScene extends PureComponent {
             refreshing: false,
         }
 
+        { (this: any).goSetting = this.goSetting.bind(this) }
         { (this: any).goSearch = this.goSearch.bind(this) }
         { (this: any).requestData = this.requestData.bind(this) }
         { (this: any).renderCell = this.renderCell.bind(this) }
@@ -87,7 +86,13 @@ class HomeScene extends PureComponent {
 
     componentDidMount() {
         this.requestData();
-        this.props.navigation.setParams({ handleSearch: this.goSearch })
+        this.props.navigation.setParams({ handleSearch: this.goSearch, handleSetting: this.goSetting })
+        // this.props.navigation.setParams({ handleSetting: this.goSetting })
+    }
+
+    goSetting()  {
+      StatusBar.setBarStyle('default', false)
+      this.props.navigation.navigate('Setting')
     }
 
     goSearch()  {

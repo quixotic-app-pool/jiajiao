@@ -24,6 +24,7 @@ import SettingScene from './scene/Setting/SettingScene'
 import UserAddressScene from './scene/UserAddress/UserAddressScene'
 import EditAddressScene from './scene/UserAddress/EditAddressScene'
 import UserCommentScene from './scene/Comment/UserCommentScene'
+import FavoriteScene from './scene/Favorite/FavoriteScene'
 
 
 import WebScene from './widget/WebScene'
@@ -159,6 +160,7 @@ const Navigator = StackNavigator(
         UserAddress: { screen: UserAddressScene },
         EditAddress: { screen: EditAddressScene },
         UserComment: { screen: UserCommentScene },
+        Favorite: { screen: FavoriteScene }
     },
     {
         navigationOptions: {

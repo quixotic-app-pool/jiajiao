@@ -15,11 +15,11 @@ import { screen, system, tool } from '../../common'
 import api from '../../api'
 import { color, DetailCell, RefreshListView, RefreshState, SpacingView } from '../../widget'
 
-import OrderMenuItem from './OrderMenuItem'
+import OrderMenuItem from '../Order/OrderMenuItem'
 import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 
 // create a component
-class OrderScene extends PureComponent {
+class FavoriteScene extends PureComponent {
 
     listView: ListView
 
@@ -28,7 +28,7 @@ class OrderScene extends PureComponent {
     }
 
     static navigationOptions = ({ navigation }) => ({
-        title: '订单',
+        title: '收藏',
         headerStyle: { backgroundColor: 'white' },
     })
 
@@ -83,7 +83,7 @@ class OrderScene extends PureComponent {
                 <RefreshListView
                     ref={(e) => this.listView = e}
                     dataSource={this.state.dataSource}
-                    renderHeader={() => this.renderHeader(this.listView)}
+                    renderHeader={()=>{}}
                     renderRow={(rowData) =>
                         <GroupPurchaseCell
                             info={rowData}
@@ -97,25 +97,6 @@ class OrderScene extends PureComponent {
                 />
             </View>
         );
-    }
-
-    renderHeader(listView) {
-        return (
-            <View style={styles.container}>
-                <DetailCell title='我的订单' subtitle='全部订单' style={{ height: 38 }} />
-
-                <View style={styles.itemContainer}>
-                    <OrderMenuItem onPress={()=>listView.startHeaderRefreshing()} title='待付款' icon={require('../../img/Order/order_tab_need_pay@2x.png')} />
-                    <OrderMenuItem onPress={()=>listView.startHeaderRefreshing()} title='待使用' icon={require('../../img/Order/order_tab_need_use@2x.png')} />
-                    <OrderMenuItem onPress={()=>listView.startHeaderRefreshing()} title='待评价' icon={require('../../img/Order/order_tab_need_review@2x.png')} />
-                    <OrderMenuItem onPress={()=>listView.startHeaderRefreshing()} title='退款/售后' icon={require('../../img/Order/order_tab_needoffer_aftersale@2x.png')} />
-                </View>
-
-                <SpacingView />
-
-                <DetailCell title='我的收藏' subtitle='查看全部' style={{ height: 38 }} />
-            </View>
-        )
     }
 
 }
@@ -132,4 +113,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default OrderScene;
+export default FavoriteScene;

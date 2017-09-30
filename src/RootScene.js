@@ -19,6 +19,9 @@ import HomeScene from './scene/Home/HomeScene'
 import OrderScene from './scene/Order/OrderScene'
 import NearbyScene from './scene/Nearby/NearbyScene'
 import MineScene from './scene/Mine/MineScene'
+import UserProfileScene from './scene/UserProfile/UserProfileScene'
+import SettingScene from './scene/Setting/SettingScene'
+
 
 import WebScene from './widget/WebScene'
 import GroupPurchaseScene from './scene/GroupPurchase/GroupPurchaseScene'
@@ -147,7 +150,9 @@ const Navigator = StackNavigator(
         Tab: { screen: Tab },
         Web: { screen: WebScene },
         GroupPurchase: { screen: GroupPurchaseScene },
-        Nearby: { screen: NearbyScene }
+        Nearby: { screen: NearbyScene },
+        UserProfile: { screen: UserProfileScene },
+        Setting: { screen: SettingScene }
     },
     {
         navigationOptions: {

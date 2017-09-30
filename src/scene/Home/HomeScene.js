@@ -33,16 +33,24 @@ class HomeScene extends PureComponent {
             </TouchableOpacity>
         ),
         headerRight: (
-            <NavigationItem
-                icon={require('../../img/Home/icon_navigationItem_message_white@2x.png')}
-                onPress={() => {
+          <View style={{ flexDirection: 'row' }}>
+              <NavigationItem
+                  icon={require('../../img/Mine/icon_navigationItem_set_white@2x.png')}
+                  onPress={() => {
 
-                }}
-            />
+                  }}
+              />
+              <NavigationItem
+                  icon={require('../../img/Home/icon_navigationItem_message_white@2x.png')}
+                  onPress={() => {
+
+                  }}
+              />
+          </View>
         ),
         headerLeft: (
             <NavigationItem
-                title='福州'
+                title='陈尼玛作品'
                 titleStyle={{ color: 'white' }}
                 onPress={() => {
 
@@ -243,7 +251,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     searchBar: {
-        width: screen.width * 0.7,
+        width: screen.width * 0.5,
         height: 30,
         borderRadius: 19,
         flexDirection: 'row',

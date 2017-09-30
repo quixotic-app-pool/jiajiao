@@ -23,9 +23,7 @@ class MineScene extends PureComponent {
             <View style={{ flexDirection: 'row' }}>
                 <NavigationItem
                     icon={require('../../img/Mine/icon_navigationItem_set_white@2x.png')}
-                    onPress={() => {
-
-                    }}
+                    onPress={() => navigation.state.params.handleSetting()}
                 />
                 <NavigationItem
                     icon={require('../../img/Home/icon_navigationItem_message_white@2x.png')}
@@ -48,6 +46,23 @@ class MineScene extends PureComponent {
         this.state = {
             isRefreshing: false
         }
+
+        { (this: any).goProfile = this.goProfile.bind(this) }
+        { (this: any).goSetting = this.goSetting.bind(this) }
+    }
+
+    componentDidMount() {
+        this.props.navigation.setParams({ handleSetting: this.goSetting})
+    }
+
+    goSetting()  {
+      StatusBar.setBarStyle('default', false)
+      this.props.navigation.navigate('Setting')
+    }
+
+    goProfile() {
+      StatusBar.setBarStyle('default', false)
+      this.props.navigation.navigate('UserProfile')
     }
 
     onHeaderRefresh() {
@@ -82,7 +97,7 @@ class MineScene extends PureComponent {
         return (
             <View style={styles.header}>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={this.goProfile}>
                   <View style={styles.userContainer}>
                       <Image style={styles.avatar} source={require('../../img/Mine/avatar.png')} />
                       <View style={{flex: 1, flexDirection: 'row'}}>
@@ -165,6 +180,8 @@ class MineScene extends PureComponent {
                     { title: '邀请好友', image: require('../../img/Mine/icon_mine_membercard@2x.png') }
                 ],
                 [
+                    { title: '我们的网站', image: require('../../img/Mine/icon_mine_customerService@2x.png') },
+                    { title: '我们的公众号', image: require('../../img/Mine/icon_mine_customerService@2x.png') },
                     { title: '客服中心', image: require('../../img/Mine/icon_mine_customerService@2x.png') },
                     { title: '关于APP', subtitle: '我要合作', image: require('../../img/Mine/icon_mine_aboutmeituan@2x.png') }
                 ]

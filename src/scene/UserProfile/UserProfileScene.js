@@ -14,6 +14,7 @@ import { Heading1, Heading2, Paragraph } from '../../widget/Text'
 import { screen, system, tool } from '../../common'
 import { color, DetailCell, NavigationItem, SpacingView } from '../../widget'
 import Icon from 'react-native-vector-icons/Ionicons'
+import PopupDialog, { SlideAnimation, DialogTitle } from 'react-native-popup-dialog'
 
 // create a component
 class UserProfileScene extends PureComponent {
@@ -24,8 +25,8 @@ class UserProfileScene extends PureComponent {
       headerRight: (
           <NavigationItem
               icon={require('../../img/Public/icon_navigationItem_share@2x.png')}
-              onPress={() => {
-
+              onPress={()=>{
+                navigation.state.params.handleShare()
               }}
           />
       ),
@@ -33,6 +34,17 @@ class UserProfileScene extends PureComponent {
 
     constructor(props: Object) {
         super(props)
+
+        { (this: any).goShare = this.goShare.bind(this) }
+    }
+
+
+    componentDidMount() {
+        this.props.navigation.setParams({ handleShare: this.goShare})
+    }
+
+    goShare()  {
+      this.popupDialog.show();
     }
 
     renderCells() {
@@ -60,11 +72,20 @@ class UserProfileScene extends PureComponent {
 
     render() {
         return (
-
-                <ScrollView>
-                    {this.renderCells()}
-                </ScrollView>
-
+              <View>
+              <PopupDialog
+                    ref={(popupDialog) => { this.popupDialog = popupDialog; }}
+                    dialogTitle={<DialogTitle title="Dialog Title" />}
+                    dialogAnimation = { new SlideAnimation({ slideFrom: 'bottom' }) }
+                  >
+                    <View>
+                      <Text>Hello</Text>
+                    </View>
+                  </PopupDialog>
+                  <ScrollView>
+                      {this.renderCells()}
+                  </ScrollView>
+              </View>
         );
     }
 

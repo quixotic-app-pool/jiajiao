@@ -23,6 +23,7 @@
     "react-native-maps": "0.15.3",
     "react-native-nav": "cribspot/react-native-nav#76baa81ded23829ad9b5eb4e4a51052b20fb4e08",
     "react-native-parsed-text": "0.0.18",
+    "react-native-popup-dialog": "^0.9.36",
     "react-native-scrollable-tab-view": "^0.6.5",
     "react-native-vector-icons": "^4.4.0",
     "react-navigation": "^1.0.0-beta.9",

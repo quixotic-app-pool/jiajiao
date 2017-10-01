@@ -8,26 +8,25 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "16.0.0-alpha.6",
-    "react-native": "0.44.0",
-    "react-native-scrollable-tab-view": "^0.6.5",
-    "react-native-vector-icons": "^4.4.0",
-    "react-navigation": "^1.0.0-beta.9",
-
-    "uuid": "3.1.0",
     "@expo/react-native-action-sheet": "cribspot/react-native-action-sheet#b422c54f26d30b9e85eb14a882ea9cec38600730",
     "md5": "2.2.1",
     "moment": "2.18.1",
     "prop-types": "15.5.10",
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.44.0",
+    "react-native-baidu-map": "^0.6.0",
+    "react-native-camera-roll-picker": "1.1.7",
     "react-native-communications": "2.2.1",
     "react-native-invertible-scroll-view": "1.0.0",
     "react-native-lightbox": "oblador/react-native-lightbox#c84a8543d4511fe6a44c3d7820747c9c1bddd875",
-    "react-native-parsed-text": "0.0.18",
-    "shallowequal": "1.0.2",
-    "react-native-camera-roll-picker": "1.1.7",
     "react-native-maps": "0.15.3",
-    "react-native-nav": "cribspot/react-native-nav#76baa81ded23829ad9b5eb4e4a51052b20fb4e08"
-
+    "react-native-nav": "cribspot/react-native-nav#76baa81ded23829ad9b5eb4e4a51052b20fb4e08",
+    "react-native-parsed-text": "0.0.18",
+    "react-native-scrollable-tab-view": "^0.6.5",
+    "react-native-vector-icons": "^4.4.0",
+    "react-navigation": "^1.0.0-beta.9",
+    "shallowequal": "1.0.2",
+    "uuid": "3.1.0"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

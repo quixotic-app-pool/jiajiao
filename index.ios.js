@@ -1,22 +1,27 @@
 /**
- * Copyright (c) 2017-present, Liu Jinyong
- * All rights reserved.
- *
- * https://github.com/huanxsd/MeiTuan
+ * Sample React Native App
+ * https://github.com/facebook/react-native
  * @flow
  */
 
-import React, { PureComponent } from 'react'
-import { AppRegistry } from 'react-native'
+import React, { Component } from 'react';
 
-import RootScene from './src/RootScene';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  TouchableHighlight
+} from 'react-native';
 
-export default class MeiTuan extends PureComponent {
-    render() {
-        return (
-            <RootScene />
-        );
-    }
+import BaiduMapDemo from './BaiduMapDemo';
+
+class rn extends Component {
+  render() {
+    return (
+      <BaiduMapDemo />
+    );
+  }
 }
 
-AppRegistry.registerComponent('MeiTuan', () => MeiTuan);
+AppRegistry.registerComponent('MeiTuan', () => rn);

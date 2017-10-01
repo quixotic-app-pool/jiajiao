@@ -21,6 +21,7 @@ import HomeMenuView from './HomeMenuView'
 import HomeGridView from './HomeGridView'
 import GroupPurchaseCell from '../GroupPurchase/GroupPurchaseCell'
 import Icon from 'react-native-vector-icons/Ionicons'
+import ActionButton from 'react-native-action-button'
 
 // create a component
 class HomeScene extends PureComponent {
@@ -174,7 +175,6 @@ class HomeScene extends PureComponent {
                 <SpacingView />
 
                 <HomeMenuView menuInfos={api.menuInfo} onMenuSelected={this.onMenuSelected} />
-
             </View>
         )
     }
@@ -238,8 +238,21 @@ class HomeScene extends PureComponent {
                     ListHeaderComponent={this.renderHeader}
                     renderItem={this.renderCell}
                 />
+
+                <View style={{bottom: 120, flex:1, backgroundColor: '#f3f3f3'}}>
+                  <ActionButton buttonColor="rgba(231,76,60,1)">
+                    <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
+                      <Icon name="md-create" style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                    <ActionButton.Item buttonColor='#3498db' title="Notifications" onPress={() => {}}>
+                      <Icon name="md-notifications-off" style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                    <ActionButton.Item buttonColor='#1abc9c' title="All Tasks" onPress={() => {}}>
+                      <Icon name="md-done-all" style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                  </ActionButton>
+                </View>
             </View>
-              /*这里需要显示几个group，推荐拼团活动，推荐大学生家教，推荐专职教师，推荐机构*/
         );
     }
 }
@@ -274,7 +287,12 @@ const styles = StyleSheet.create({
         height: 20,
         margin: 5,
         alignItems: 'flex-end',
-    }
+    },
+    actionButtonIcon: {
+    fontSize: 20,
+    height: 22,
+    color: 'white',
+  }
 });
 
 //make this component available to the app

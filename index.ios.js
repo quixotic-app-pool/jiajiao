@@ -5,7 +5,7 @@
 - * https://github.com/huanxsd/MeiTuan
   * @flow
   */
-
+import './ReactotronConfig'
 import React, { PureComponent } from 'react'
 import { AppRegistry } from 'react-native'
 

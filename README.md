@@ -10,3 +10,15 @@ http://www.lcode.org/%E8%B6%85%E8%AF%A6%E7%BB%86react-native%E5%AE%9E%E7%8E%B0%E
 
 监测api，action，event等的工具，有附带的mac app，记得打开
 https://github.com/infinitered/reactotron/blob/master/docs/quick-start-react-native.md
+
+kittenTricks UI example很简洁，可以参考，是对接西式的一个接口
+https://github.com/akveo/kittenTricks
+
+materialkit 还是不错滴，有些零部件可以考虑或者学习material design的风格
+https://github.com/xinthink/react-native-material-kit#buttons
+
+这里集合了几乎所有的关于button动态效果的example和实现方式
+https://github.com/oblador/react-native-animatable
+
+用到calendar，这个足够了，可以加任务
+https://github.com/wix/react-native-calendars
